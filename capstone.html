@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Mohialdin Eldirdiri — Portfolio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --bg:#ffffff;
+    --text:#111111;
+    --subtle:#555;
+    --accent:#C5A019;
+    --border:#e5e5e5;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{background:var(--bg);color:var(--text);font-family:"Inter",sans-serif;line-height:1.55;}
+
+  /* NAV */
+  header{
+    position:fixed;top:0;left:0;right:0;background:#fff;
+    border-bottom:1px solid var(--border);z-index:40;
+  }
+  .nav-inner{
+    max-width:1100px;margin:auto;padding:18px 24px;display:flex;
+    justify-content:space-between;align-items:center;
+  }
+  .brand{font-family:"Playfair Display",serif;font-size:1.45rem;color:var(--accent);font-weight:700;}
+
+  nav a{
+    margin-left:22px;text-decoration:none;color:var(--subtle);font-weight:600;font-size:0.95rem;
+  }
+  nav a:hover{color:var(--accent)}
+
+  /* HERO */
+  .hero{
+    padding:140px 20px 100px;min-height:65vh;display:flex;justify-content:center;align-items:center;
+  }
+  .hero-inner{
+    max-width:1100px;margin:auto;display:flex;gap:60px;align-items:center;justify-content:space-between;
+  }
+
+  .hero-text{flex:1;}
+  .hero-text h1{
+    font-family:"Playfair Display",serif;color:var(--text);font-size:3rem;font-weight:600;margin-bottom:14px;
+  }
+  .hero-text p{color:var(--subtle);font-size:1.1rem;margin-bottom:24px;}
+  .btn-primary{
+    padding:13px 26px;background:var(--accent);color:#fff;text-decoration:none;
+    font-weight:700;letter-spacing:0.3px;
+  }
+
+  .portrait{
+    width:300px;height:380px;background:#ddd;border-radius:6px;overflow:hidden;
+    background-size:cover;background-position:center;
+    box-shadow:0 10px 25px rgba(0,0,0,0.15);
+  }
+
+  /* Section base */
+  section{padding:100px 20px;}
+  .container{max-width:1100px;margin:auto;}
+
+  h2{
+    font-family:"Playfair Display",serif;font-size:2.4rem;font-weight:600;
+  }
+  .section-line{
+    width:0;height:3px;background:var(--accent);
+    margin-top:10px;margin-bottom:28px;transition:width 0.8s ease;
+  }
+  p.lead{font-size:1.1rem;color:var(--subtle);max-width:880px;}
+
+  /* Projects grid */
+  .projects-grid{
+    margin-top:40px;display:flex;flex-wrap:wrap;gap:48px;justify-content:center;
+  }
+  .project-item{text-align:center;width:220px;}
+  .circle{
+    width:180px;height:180px;border-radius:50%;background:#fff;border:2px solid var(--border);
+    display:flex;justify-content:center;align-items:center;cursor:pointer;transition:0.3s;
+  }
+  .circle:hover{border-color:var(--accent);transform:translateY(-6px);}
+  .icon{font-size:56px;}
+  .project-title{font-family:"Playfair Display",serif;margin-top:12px;font-size:1.25rem;font-weight:700}
+
+  /* Fade reveal animation */
+  .reveal{opacity:0;transform:translateY(30px);transition:0.7s ease-out;}
+  .reveal.show{opacity:1;transform:translateY(0);}
+  .reveal-line.show>.section-line{width:70px;}
+
+  /* Modal */
+  #pdfModal{
+    position:fixed;inset:0;background:rgba(0,0,0,0.55);display:none;
+    align-items:center;justify-content:center;z-index:80;padding:22px;
+  }
+  .modal-window{
+    width:95%;max-width:1200px;height:88vh;background:#fff;border-radius:10px;overflow:hidden;position:relative;
+  }
+  .modal-top{position:absolute;top:12px;left:12px;right:12px;display:flex;justify-content:space-between;}
+  .modal-btn{padding:7px 14px;border:none;border-radius:6px;font-weight:700;}
+  .download-btn{background:var(--accent);color:#fff;}
+  .close-x{background:#ff3b46;color:#fff;}
+  .pdf-frame{width:100%;height:100%;border:0;}
+  footer{text-align:center;padding:28px;color:var(--subtle);}
+
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav-inner">
+    <div class="brand">Mohialdin Eldirdiri</div>
+    <nav>
+      <a href="#projects">Works</a>
+      <a href="#rewrite">Rewrite</a>
+      <a href="#reflection">Reflection</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section class="hero reveal">
+  <div class="hero-inner">
+    <div class="hero-text">
+      <h1>Welcome, I'm Mohialdin</h1>
+      <h2>A communicator under deveolpment</h2>
+      <p>My mission is to make every interaction I have an effective one by sharping up my communication skills and grow as a communicator with each interaction.</p>
+      <a href="#projects" class="btn-primary">Explore my Work</a>
+    </div>
+
+  </div>
+</section>
+
+
+<section id="projects" class="container reveal reveal-line">
+  <h2>Curated Works</h2>
+  <div class="section-line"></div>
+  <p class="lead">Click to preview instantly.</p>
+
+  <div class="projects-grid">
+    <div class="project-item">
+      <div class="circle" onclick="openPDF('ShakeDetection User Manual - Revised.pdf')"><div class="icon">📄</div></div>
+      <div class="project-title">Manual</div>
+    </div>
+
+    <div class="project-item">
+      <div class="circle" onclick="openPDF('readme.pdf')"><div class="icon">🧾</div></div>
+      <div class="project-title">README</div>
+    </div>
+
+    <div class="project-item">
+      <div class="circle" onclick="openPDF('Technical Proposal.pdf')"><div class="icon">📑</div></div>
+      <div class="project-title">Proposal</div>
+    </div>
+
+    <div class="project-item">
+      <div class="circle" onclick="openPDF('Technical Presentation.pdf')"><div class="icon">🎤</div></div>
+      <div class="project-title">Presentation</div>
+    </div>
+  </div>
+</section>
+
+<section id="rewrite" class="container reveal reveal-line">
+  <h2>Rewrite Sample</h2>
+  <div class="section-line"></div>
+  <p class="lead">Will be add in the final draft...</p>
+</section>
+
+<section id="reflection" class="container reveal reveal-line">
+  <h2>Reflection</h2>
+  <div class="section-line"></div>
+  <p class="lead">Will be add in the final draft...</p>
+</section>
+
+<section id="contact" class="container reveal reveal-line">
+  <h2>Contact</h2>
+  <div class="section-line"></div>
+  <p herf="#lead">Email: mohialdeenalderdery8@gmail.com — GitHub: https://github.com/M0hialdin</p>
+</section>
+
+<footer>
+  © <span id="year"></span> Mohialdin Eldirdiri
+</footer>
+</main>
+
+<div id="pdfModal">
+  <div class="modal-window">
+    <div class="modal-top">
+      <button id="downloadBtn" class="modal-btn download-btn">Download</button>
+      <button class="modal-btn close-x" onclick="closePDF()">Close</button>
+    </div>
+    <iframe id="pdfFrame" class="pdf-frame"></iframe>
+  </div>
+</div>
+
+<script>
+document.getElementById("year").textContent = new Date().getFullYear();
+const modal=document.getElementById("pdfModal"), frame=document.getElementById("pdfFrame"), download=document.getElementById("downloadBtn");
+
+function openPDF(p){frame.src=p;download.href=p;modal.style.display="flex";document.body.style.overflow="hidden";}
+function closePDF(){modal.style.display="none";frame.src="";document.body.style.overflow="";}
+
+modal.addEventListener("click",(e)=>{ if(e.target===modal) closePDF(); });
+
+/* Reveal on Scroll */
+const elements=document.querySelectorAll(".reveal");
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      entry.target.classList.add("show");
+      observer.unobserve(entry.target);
+    }
+  });
+},{threshold:0.2});
+elements.forEach(el=>observer.observe(el));
+</script>
+</body>
+</html>
